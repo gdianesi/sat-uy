@@ -1,0 +1,60 @@
+:root {
+  --bg0: #05070b;
+  --bg1: #070b12;
+  --panel: rgba(16, 22, 32, 0.62);
+  --panel-2: rgba(10, 14, 22, 0.65);
+  --text: #e9eef6;
+  --muted: rgba(233, 238, 246, 0.72);
+  --border: rgba(233, 238, 246, 0.12);
+
+  --accent: #6ee7ff;
+  --accent2: #3b82f6;
+  --danger: #ff4d4d;
+
+  --radius: 18px;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 700px at 60% 20%, rgba(110,231,255,0.12), transparent 55%),
+              radial-gradient(900px 600px at 10% 80%, rgba(59,130,246,0.12), transparent 55%),
+              linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x: hidden;
+}
+
+/* Starfield overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.75) 0, transparent 60%),
+    radial-gradient(1px 1px at 70% 10%, rgba(255,255,255,0.60) 0, transparent 60%),
+    radial-gradient(1px 1px at 35% 75%, rgba(255,255,255,0.65) 0, transparent 60%),
+    radial-gradient(1px 1px at 90% 55%, rgba(255,255,255,0.55) 0, transparent 60%),
+    radial-gradient(2px 2px at 22% 45%, rgba(255,255,255,0.45) 0, transparent 65%),
+    radial-gradient(2px 2px at 82% 78%, rgba(255,255,255,0.35) 0, transparent 65%);
+  filter: blur(0.2px);
+}
+
+/* Subtle scanline/grid overlay (NASA vibe) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background:
+    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(800px 500px at 55% 35%, rgba(0,0,0,1), rgba(0,0,0,0.2));
+}
